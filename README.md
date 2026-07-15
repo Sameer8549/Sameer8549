@@ -21,6 +21,16 @@
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
 
-Abdul Sameer is a web developer focused on React, responsive websites, modern UI design, and portfolio/business websites.
+I am Abdul Sameer, an AI/ML developer, full-stack web developer, and published research author focused on computer vision, healthcare AI, precision agriculture, React websites, FastAPI backends, and AI MVP development.
+
+I have built AI and full-stack projects including ArogyaLens, a real-time visual health analysis system using OpenCV, YOLOv8, NVIDIA Nemotron, and Gemini; QueueIQ, a real-time hospital queue intelligence system using LSTM prediction, multilingual NLP, and RAG-powered health education; and AgriVision, a smart farming platform using deep learning, IoT, and drone-based remote sensing.
+
+My published research includes QueueIQ and AgriVision. I maintain Academia.edu and ORCID profiles to connect my research and technical work.
 
 Portfolio: https://asameer.netlify.app
+GitHub: https://github.com/Sameer8549
+Academia: https://vtu.academia.edu/ABDULSAMEER
+ORCID: https://orcid.org/0009-0006-9004-1229
+Email: abdulsameer63167@gmail.com
+
+Open to AI/ML internships, freelance AI projects, full-stack development work, and AI MVP development opportunities.
