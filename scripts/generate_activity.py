@@ -7,18 +7,17 @@ live feed. Refresh by replacing the matrix from a newer profile screenshot.
 """
 
 from datetime import date
-from math import sin, tau
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "assets" / "activity.gif"
 WIDTH, HEIGHT = 1200, 360
-BG = (7, 11, 20)
-INK = (242, 245, 250)
-MUTED = (153, 173, 208)
-BLUE = (40, 87, 255)
-LEVELS = [(21, 27, 35), (18, 62, 42), (12, 99, 57), (16, 139, 74), (45, 194, 105)]
+BG = (43, 82, 250)
+INK = (244, 246, 255)
+MUTED = (181, 198, 255)
+BLUE = (8, 19, 68)
+LEVELS = [(132, 160, 255), (34, 68, 201), (22, 51, 160), (13, 34, 116), (8, 19, 68)]
 # 53 calendar columns x 7 weekdays, sampled from the supplied 90-contribution GitHub profile view.
 ROWS = [
     "00000000000000000000000000000001000000200000000000200",
@@ -59,27 +58,26 @@ def render():
     for frame_index in range(40):
         canvas = Image.new("RGB", (WIDTH, HEIGHT), BG)
         d = ImageDraw.Draw(canvas)
-        d.rectangle((0, 0, WIDTH, 7), fill=BLUE)
-        d.text((42, 22), "90", font=font(55, True), fill=INK)
-        d.text((44, 83), "CONTRIBUTIONS / LAST 12 MONTHS", font=font(14, True, mono=True), fill=BLUE)
+        d.text((42, 22), "90", font=font(55, True), fill=BLUE)
+        d.text((44, 83), "CONTRIBUTIONS / LAST 12 MONTHS", font=font(14, True, mono=True), fill=INK)
         d.text((1158, 28), "PROFILE SNAPSHOT", font=font(13, True, mono=True), fill=MUTED, anchor="ra")
         d.text((1158, 56), "21 OCT 2026 · GITHUB", font=font(15, True), fill=INK, anchor="ra")
-        d.line((42, 121, 1158, 121), fill=(51, 65, 99), width=1)
-        d.text((42, 143), "PROFILE CONTRIBUTION RECORD", font=font(11, True, mono=True), fill=MUTED)
+        d.line((42, 121, 1158, 121), fill=(160, 183, 255), width=1)
+        d.text((42, 143), "PROFILE CONTRIBUTION RECORD", font=font(11, True, mono=True), fill=INK)
         months = [(2025, 10), *[(2026, month) for month in range(1, 11)]]
         for year, month in months:
             month_date = date(year, month, 1)
             label_date = max(START, month_date) if (year, month) == (START.year, START.month) else month_date
             col = (label_date - START).days // 7 + (0 if label_date == START else 1)
             d.text((grid_x + col * stride, 174), label_date.strftime("%b").upper(),
-                   font=font(10, True), fill=MUTED)
+                   font=font(10, True), fill=INK)
         for label, row in [("MON", 1), ("WED", 3), ("FRI", 5)]:
-            d.text((42, grid_y + row * stride + 2), label, font=font(9, True), fill=MUTED)
-        d.text((884, 338), "LESS", font=font(9, True), fill=MUTED)
+            d.text((42, grid_y + row * stride + 2), label, font=font(9, True), fill=INK)
+        d.text((884, 338), "LESS", font=font(9, True), fill=INK)
         for index, color in enumerate(LEVELS):
             x = 927 + index * 22
             d.rounded_rectangle((x, 337, x + 14, 351), radius=2, fill=color)
-        d.text((1050, 338), "MORE", font=font(9, True), fill=MUTED)
+        d.text((1050, 338), "MORE", font=font(9, True), fill=INK)
         active = []
         for col, row, level in cells:
             x, y = grid_x + col * stride, grid_y + row * stride
@@ -87,20 +85,13 @@ def render():
                                 fill=LEVELS[level])
             if level:
                 active.append((col, row, level, x, y))
-        # Brighter blue light breathes across the exact active cells; no fabricated days or counts.
-        glow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
-        gd = ImageDraw.Draw(glow)
-        phase = frame_index / 40 * tau
-        for col, row, level, x, y in active:
-            seed = (col * 31 + row * 47 + level * 13) % 97
-            strength = (sin(phase + seed / 97 * tau) + 1) / 2
-            radius = 1 + round(strength * 4)
-            alpha = int(25 + 135 * strength)
-            gd.rounded_rectangle((x - radius, y - radius, x + width - 1 + radius, y + width - 1 + radius),
-                                 radius=4, fill=(*BLUE, alpha))
-        canvas = canvas.convert("RGBA")
-        canvas.alpha_composite(glow.filter(ImageFilter.GaussianBlur(2)))
-        frames.append(canvas.convert("RGB"))
+        # A sharp white outline travels through only active cells in the real
+        # dated record; the contribution days and their count stay unchanged.
+        if active:
+            focus = active[(frame_index * len(active) // 40) % len(active)]
+            _, _, _, fx, fy = focus
+            d.rectangle((fx - 3, fy - 3, fx + width + 2, fy + width + 2), outline=INK, width=2)
+        frames.append(canvas)
     return frames
 
 
