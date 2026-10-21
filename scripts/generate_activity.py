@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
-"""Animate the exact GitHub activity grid shown in the user's supplied profile screenshot.
+"""Animate the 2026 GitHub contribution calendar captured on 21 October 2026.
 
-The GitHub profile view reports 90 contributions. Its unauthenticated public calendar
-feed differs, so this image is an explicitly dated profile snapshot instead of a misleading
-live feed. Refresh by replacing the matrix from a newer profile screenshot.
+Cell levels and the yearly total are from GitHub's public contribution calendar. The cells
+remain fixed; the moving quarter frame is a visual focus, not live or fabricated activity.
 """
 
 from datetime import date
-from math import cos, pi
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
@@ -19,19 +17,19 @@ INK = (244, 246, 255)
 MUTED = (181, 198, 255)
 BLUE = (8, 19, 68)
 LEVELS = [(8, 19, 68), (13, 34, 116), (22, 51, 160), (34, 68, 201), (132, 160, 255)]
-# 53 calendar columns x 7 weekdays, sampled from the supplied 90-contribution GitHub profile view.
+# 53 weeks x 7 weekdays, mapped from GitHub's 2026 contribution calendar (level 0–4).
 ROWS = [
-    "00000000000000000000000000000001000000200000000000200",
-    "00200000000000000020000000000000001000000010000200000",
-    "00000000000000000000000000000000000010200010000400000",
-    "00000000000000000000000100000000400000200000004000121",
-    "00000000010000000000000200000000101000000000000000000",
-    "00000000000000000000100000000000011000000110000000400",
-    "00000000000000000000000000000000000002100102000000100",
+    "00000000000000000000010000001000000000002000000000000",
+    "00000000200000000000000010100000100002000000000000000",
+    "00000000000000000000000000002000100004001000000000000",
+    "00000000000000000000004010002000000040000210000000000",
+    "00000000000002000000001000000000000000000000000000000",
+    "00000000001000000000000010000001100000004000000000000",
+    "00000000000000000000000000021001010000001000000000000",
 ]
-TOTAL = 90
-START = date(2025, 10, 19)  # First Sunday visible in the supplied October-to-October calendar.
-END = date(2026, 10, 21)
+TOTAL = 84
+GRID_START = date(2025, 12, 28)  # Sunday before the first day of 2026.
+SNAPSHOT_DATE = date(2026, 10, 21)
 
 
 def font(size, bold=False, mono=False):
@@ -60,42 +58,44 @@ def render_frames():
     for frame_index in range(frame_count):
         canvas = Image.new("RGB", (WIDTH, HEIGHT), BG)
         d = ImageDraw.Draw(canvas)
-        d.text((42, 22), "90", font=font(55, True), fill=BLUE)
-        d.text((44, 83), "CONTRIBUTIONS / LAST 12 MONTHS", font=font(14, True, mono=True), fill=INK)
+        d.text((42, 22), str(TOTAL), font=font(55, True), fill=BLUE)
+        d.text((44, 83), "CONTRIBUTIONS IN 2026", font=font(14, True, mono=True), fill=INK)
         d.text((1158, 28), "PROFILE SNAPSHOT", font=font(13, True, mono=True), fill=MUTED, anchor="ra")
-        d.text((1158, 56), "21 OCT 2026 · GITHUB", font=font(15, True), fill=INK, anchor="ra")
+        d.text((1158, 56), f"{SNAPSHOT_DATE:%d %b %Y} · GITHUB", font=font(15, True), fill=INK, anchor="ra")
         d.line((42, 121, 1158, 121), fill=(160, 183, 255), width=1)
+        focus = (frame_index // (frame_count // 4)) % 4
+        windows = [("JAN — MAR 26", 0, 13), ("APR — JUN 26", 13, 26),
+                   ("JUL — SEP 26", 26, 39), ("OCT — DEC 26", 39, 53)]
+        window_label, first_col, last_col = windows[focus]
         d.text((42, 143), "PROFILE CONTRIBUTION RECORD", font=font(11, True, mono=True), fill=INK)
-        month_marks = [("OCT", 0), ("NOV", 4), ("DEC", 9), ("JAN", 13), ("FEB", 17),
-                       ("MAR", 21), ("APR", 26), ("MAY", 30), ("JUN", 34), ("JUL", 39),
-                       ("AUG", 43), ("SEP", 47), ("OCT", 51)]
+        d.text((1158, 143), f"WINDOW / {window_label}", font=font(11, True, mono=True),
+               fill=INK, anchor="ra")
+        month_marks = [(date(2026, month, 1).strftime("%b").upper(),
+                        (date(2026, month, 1) - GRID_START).days // 7)
+                       for month in range(1, 13)]
         for label, col in month_marks:
             d.text((grid_x + col * stride, 174), label, font=font(10, True), fill=INK)
         for label, row in [("MON", 1), ("WED", 3), ("FRI", 5)]:
             d.text((42, grid_y + row * stride + 2), label, font=font(9, True), fill=INK)
+        left = grid_x + first_col * stride - 4
+        right = grid_x + (last_col - 1) * stride + width + 4
+        d.rectangle((left, 165, right, grid_y + 7 * stride - 2), outline=INK, width=2)
         d.text((884, 338), "LESS", font=font(9, True), fill=INK)
         for index, color in enumerate(LEVELS):
             x = 927 + index * 22
             d.rounded_rectangle((x, 337, x + 14, 351), radius=2, fill=color)
         d.text((1050, 338), "MORE", font=font(9, True), fill=INK)
-        active = []
         for col, row, level in cells:
             x, y = grid_x + col * stride, grid_y + row * stride
             d.rounded_rectangle((x, y, x + width - 1, y + width - 1), radius=2,
                                 fill=LEVELS[level])
-            if level:
-                active.append((col, row, level, x, y))
-        # Four fixed cells breathe in place. The dated contribution data never moves
-        # or changes intensity, and the animation does not trace a snake path.
-        if active:
-            picks = [active[k] for k in (5, 17, 31, 44) if k < len(active)]
-            for pulse_index, (_, _, _, fx, fy) in enumerate(picks):
-                phase = pulse_index * frame_count // max(1, len(picks))
-                wave = (1 + cos(2 * pi * (frame_index - phase) / frame_count)) / 2
-                channel = int(88 + 130 * wave)
-                glow = (channel, min(235, channel + 22), 255)
-                d.rounded_rectangle((fx - 2, fy - 2, fx + width + 1, fy + width + 1),
-                                    radius=3, outline=glow, width=2)
+        # The selected quarter frames existing cells; their values never change.
+        # This is a visual focus over the dated GitHub snapshot, not live activity.
+        for col, row, level in cells:
+            if level and first_col <= col < last_col:
+                x, y = grid_x + col * stride, grid_y + row * stride
+                d.rounded_rectangle((x - 1, y - 1, x + width, y + width),
+                                    radius=3, outline=INK, width=2)
         frames.append(canvas)
     return frames
 

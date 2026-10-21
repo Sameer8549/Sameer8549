@@ -122,7 +122,17 @@ def hero_panel():
         d.rectangle((36, 58, 49, 304), fill=NAVY)
         d.text((72, 78), "ABDUL", font=font(82, True, display=True), fill=NAVY)
         d.text((72, 153), "SAMEER", font=font(82, True, display=True), fill=ICE)
-        d.text((77, 255), "AI / ML  ·  FULL-STACK", font=font(16, True, mono=True), fill=NAVY)
+        tabs = [("AI / ML ENGINEER", 164), ("FULL-STACK", 150), ("CREATIVE TECH", 176)]
+        tx = 72
+        active_tab = (i // 16) % len(tabs)
+        for tab_index, (label, tab_width) in enumerate(tabs):
+            selected = tab_index == active_tab
+            d.rectangle((tx, 250, tx + tab_width, 284),
+                        fill=ICE if selected else PANEL,
+                        outline=ICE, width=1)
+            d.text((tx + 10, 260), label, font=font(11, True, mono=True),
+                   fill=NAVY if selected else ICE)
+            tx += tab_width + 10
         d.rectangle((824, 52, 1146, 328), fill=NAVY, outline=ICE, width=1)
         d.rectangle((837, 65, 1111, 339), fill=PANEL)
         im.paste(avatar, (852, 78), avatar)
@@ -131,11 +141,6 @@ def hero_panel():
         paste_strip(im, ticker, cycle, (86, 312, 690, 36), int(i * cycle / count))
         d = ImageDraw.Draw(im)
         d.text((1129, 345), "01 / 08", font=font(10, True, mono=True), fill=ICE, anchor="ra")
-        # A slow underline pulse supplies motion without scanning across the portrait.
-        span = 118
-        px = 72 + int((1 - cos((i / count) * 2 * pi)) * 0.5 * (670 - span))
-        d.rectangle((72, 352, 742, 355), fill=PANEL)
-        d.rectangle((px, 352, px + span, 355), fill=ICE)
         frames.append(im)
     save_gif(ASSETS / "hero.gif", frames, 180)
 
@@ -189,8 +194,10 @@ def stack_panel():
         for idx, ((label, _), (strip, cycle)) in enumerate(zip(rows, strips)):
             y = 132 + idx * 47
             d.rectangle((38, y, 1162, y + 34), fill=PANEL if idx % 2 == 0 else PANEL_ALT, outline=ICE, width=1)
-            d.rectangle((38, y, 246, y + 34), fill=NAVY)
-            d.text((51, y + 10), label, font=font(10, True, mono=True), fill=ICE)
+            selected = idx == (i // 18) % len(rows)
+            d.rectangle((38, y, 246, y + 34), fill=ICE if selected else NAVY)
+            d.text((51, y + 10), label, font=font(10, True, mono=True),
+                   fill=NAVY if selected else ICE)
             # The content drift is one full cycle per 10.8-second loop.
             offset = int(i * cycle / count)
             paste_strip(im, strip, cycle, (260, y, 894, 34), offset)
@@ -201,41 +208,49 @@ def stack_panel():
     save_gif(ASSETS / "stack.gif", frames, 150)
 
 
-def index_panel(name, kicker, title, right, total="10", width=1200, height=116):
+def index_panel(name, kicker, title, right, total="10", width=1200, height=88):
     count = 48
     frames = []
     for i in range(count):
         im = base((width, height), kicker, right)
         d = ImageDraw.Draw(im)
-        d.rectangle((28, 48, width - 28, 100), fill=PANEL, outline=ICE, width=1)
-        d.rectangle((28, 48, 39, 100), fill=NAVY)
-        d.text((56, 52), title, font=font(36, True, display=True), fill=ICE)
-        d.text((width - 52, 69), f"01 / {total}", font=font(11, True, mono=True), fill=MUTED, anchor="ra")
-        x = 48 + int(i * (width - 96) / count)
-        d.rectangle((x, 96, min(width - 48, x + 76), 100), fill=ICE)
+        d.rectangle((0, 38, width, height), fill=NAVY)
+        focus_title = (i // 24) % 2 == 0
+        title_font = font(36, True, display=True)
+        title_width = int(d.textlength(title, font=title_font))
+        if focus_title:
+            d.rectangle((38, 43, min(width - 248, 52 + title_width), 82), fill=ICE)
+        d.rectangle((26, 43, 31, 82), fill=ICE if focus_title else PANEL_ALT)
+        d.text((48, 44), title, font=title_font, fill=NAVY if focus_title else ICE)
+        counter = f"01 / {total}"
+        if not focus_title:
+            d.rectangle((width - 214, 45, width - 28, 80), fill=ICE)
+        d.text((width - 44, 57), counter, font=font(12, True, mono=True),
+               fill=NAVY if not focus_title else MUTED, anchor="ra")
         frames.append(im)
     save_gif(ASSETS / name, frames, 180)
 
 
 def card_gif(path, index, name, detail, category, kicker="SELECTED BUILD"):
-    w, h, count = 560, 146, 30
+    w, h, count = 560, 146, 36
     frames = []
     for i in range(count):
         im = base((w, h), f"{kicker} / {index:02}", "OPEN REPOSITORY")
         d = ImageDraw.Draw(im)
         d.rectangle((18, 48, 542, 132), fill=PANEL if index % 2 else PANEL_ALT, outline=ICE, width=1)
-        d.rectangle((18, 48, 29, 132), fill=NAVY)
-        d.text((48, 56), f"{index:02}", font=font(11, True, mono=True), fill=MUTED)
+        focus = (i // 12 + index - 1) % 3
+        focus_rows = [(40, 51, 520, 84), (40, 87, 520, 108), (40, 111, 520, 128)]
+        y1, y2, y3, y4 = focus_rows[focus]
+        d.rectangle((y1, y2, y3, y4), fill=ICE)
+        d.rectangle((18, y2, 29, y4), fill=ICE)
+        ink = [ICE, ICE, ICE]
+        ink[focus] = NAVY
+        d.text((48, 56), f"{index:02}", font=font(11, True, mono=True), fill=ink[0])
         title_size = 26 if len(name) <= 14 else 21
-        d.text((86, 53), name, font=font(title_size, True), fill=ICE)
-        d.text((49, 91), detail, font=font(11, True, mono=True), fill=ICE)
-        d.text((49, 112), category, font=font(9, True, mono=True), fill=MUTED)
-        # A measured edge signal moves along the bottom rail, then rests.
-        rail_x = 48 + int(i * 448 / count)
-        d.rectangle((48, 127, 512, 130), fill=NAVY)
-        d.rectangle((rail_x, 127, min(rail_x + 46, 512), 130), fill=ICE)
-        # Small arrow shifts only two pixels over the whole loop.
-        shift = round(2 * (1 - cos(2 * pi * i / count)) / 2)
+        d.text((86, 53), name, font=font(title_size, True), fill=ink[0])
+        d.text((49, 91), detail, font=font(11, True, mono=True), fill=ink[1])
+        d.text((49, 112), category, font=font(9, True, mono=True), fill=ink[2])
+        shift = 8 if focus == 0 else 0
         d.line((505 + shift, 66, 520 + shift, 66), fill=ICE, width=2)
         d.line((514 + shift, 60, 520 + shift, 66, 514 + shift, 72), fill=ICE, width=2)
         frames.append(im)
@@ -249,13 +264,16 @@ def research_card(path, index, title, detail, url_label):
         im = base((w, h), f"RESEARCH / {index:02}", "PAPER LINKED")
         d = ImageDraw.Draw(im)
         d.rectangle((18, 48, 542, 142), fill=PANEL, outline=ICE, width=1)
-        d.rectangle((18, 48, 29, 142), fill=NAVY)
-        d.text((48, 56), title, font=font(25, True), fill=ICE)
-        d.text((49, 91), detail, font=font(10, True, mono=True), fill=MUTED)
-        d.text((49, 116), url_label, font=font(10, True, mono=True), fill=ICE)
-        x = 48 + int(i * 450 / count)
-        d.rectangle((48, 136, 512, 139), fill=NAVY)
-        d.rectangle((x, 136, min(x + 42, 512), 139), fill=ICE)
+        focus = (i // 8 + index - 1) % 3
+        focus_rows = [(40, 51, 520, 83), (40, 87, 520, 108), (40, 112, 520, 135)]
+        x1, y1, x2, y2 = focus_rows[focus]
+        d.rectangle((x1, y1, x2, y2), fill=ICE)
+        d.rectangle((18, y1, 29, y2), fill=ICE)
+        inks = [ICE, MUTED, ICE]
+        inks[focus] = NAVY
+        d.text((48, 56), title, font=font(25, True), fill=inks[0])
+        d.text((49, 91), detail, font=font(10, True, mono=True), fill=inks[1])
+        d.text((49, 116), url_label, font=font(10, True, mono=True), fill=inks[2])
         frames.append(im)
     save_gif(path, frames, 300)
 
@@ -301,9 +319,6 @@ def footer_panel():
         d.rectangle((28, 47, 1172, 97), fill=NAVY, outline=ICE, width=1)
         paste_strip(im, strip, cycle, (42, 51, 1095, 42), int(i * cycle / count))
         d = ImageDraw.Draw(im)
-        d.rectangle((28, 102, 1172, 105), fill=PANEL)
-        x = 28 + int(i * 1144 / count)
-        d.rectangle((x, 102, min(96 + x, 1172), 105), fill=ICE)
         frames.append(im)
     save_gif(ASSETS / "footer.gif", frames, 200)
 
@@ -315,11 +330,13 @@ def live_badge():
         im = Image.new("RGB", (w, h), PANEL)
         d = ImageDraw.Draw(im)
         d.rectangle((1, 1, w - 2, h - 2), outline=ICE, width=1)
+        phase = i / count
+        wave = (1 - cos(2 * pi * phase)) / 2
+        radius = 4 + round(3 * wave)
+        fade = (int(72 + 150 * (1 - wave)), int(108 + 130 * (1 - wave)), 255)
+        d.ellipse((17 - radius, 19 - radius, 17 + radius, 19 + radius), outline=fade, width=1)
         d.ellipse((12, 14, 22, 24), fill=ICE)
         d.text((31, 11), "LIVE / DEMO", font=font(11, True, mono=True), fill=ICE)
-        x = 8 + int(i * (w - 32) / count)
-        d.rectangle((8, 34, w - 8, 37), fill=NAVY)
-        d.rectangle((x, 34, min(x + 20, w - 8), 37), fill=ICE)
         frames.append(im)
     save_gif(ASSETS / "live-badge.gif", frames, 300)
 
