@@ -1,49 +1,30 @@
-<p align="center">
-  <img src="assets/hero.svg?v=6" width="100%" alt="Abdul Sameer — AI/ML engineer and full-stack developer in Bengaluru, India. Animated royal-blue profile." />
-</p>
+<p align="center"><img src="assets/hero.svg?v=11" width="100%" alt="Abdul Sameer: AI/ML engineer and full-stack developer in Bengaluru, India. Animated royal-blue brutalist GitHub profile with a photographic portrait and animated project ribbon." /></p>
 
-<h1 align="center">Abdul Sameer · AI/ML Engineer &amp; Full-Stack Developer</h1>
+<h1 align="center">Abdul Sameer · AI/ML Engineer · Full-Stack Developer</h1>
 
-<p align="center">
-  <a href="https://linkedin.com/in/abdulsameer9">LinkedIn</a> ·
-  <a href="https://asameer.netlify.app/">Portfolio</a> ·
-  <a href="https://github.com/Sameer8549">GitHub</a> ·
-  <a href="mailto:abdulsameer63167@gmail.com">Email</a>
-</p>
+<p align="center"><a href="https://linkedin.com/in/abdulsameer9">LINKEDIN</a> &nbsp; / &nbsp; <a href="https://asameer.netlify.app/">PORTFOLIO</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549">GITHUB</a></p>
 
-<p align="center"><strong>Applied AI · Computer Vision · GenAI · Full-Stack Products</strong><br />
-Bengaluru, India · B.E. Information Science Engineering, HKBK (2024–2028) · Google Student Ambassador</p>
+<p align="center">Bengaluru, India · HKBK Information Science Engineering · Google Student Ambassador</p>
 
-<img src="assets/about.svg?v=6" width="100%" alt="Animated AI product workflow and Abdul Sameer’s HKBK engineering education and Google Student Ambassador role." />
+<p align="center"><img src="assets/about.svg?v=9" width="100%" alt="Animated applied AI and product engineering workflow; HKBK student and Google Student Ambassador." /></p>
 
-<img src="assets/stack.svg?v=6" width="100%" alt="Animated verified technology icons and skills: Python, JavaScript, TypeScript, React, FastAPI, Node.js, OpenCV, Gemini, PostgreSQL, YOLOv8, BioBERT, Whisper, RAG, Docker, Google Cloud, Oracle Cloud." />
+<p align="center"><img src="assets/stack.svg?v=11" width="100%" alt="Technology stack: eight fully visible official logos above verified skills grouped by category." /></p>
+<p align="center"><a href="https://www.python.org/" title="Python"><img src="https://cdn.simpleicons.org/python/3776AB" width="38" height="38" alt="Python" /></a>&nbsp;&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" width="38" height="38" alt="JavaScript" /></a>&nbsp;&nbsp;<a href="https://www.typescriptlang.org/" title="TypeScript"><img src="https://cdn.simpleicons.org/typescript/3178C6" width="38" height="38" alt="TypeScript" /></a>&nbsp;&nbsp;<a href="https://react.dev/" title="React"><img src="https://cdn.simpleicons.org/react/61DAFB" width="38" height="38" alt="React" /></a>&nbsp;&nbsp;<a href="https://fastapi.tiangolo.com/" title="FastAPI"><img src="https://cdn.simpleicons.org/fastapi/009688" width="38" height="38" alt="FastAPI" /></a>&nbsp;&nbsp;<a href="https://nodejs.org/" title="Node.js"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" width="38" height="38" alt="Node.js" /></a>&nbsp;&nbsp;<a href="https://opencv.org/" title="OpenCV"><img src="https://cdn.simpleicons.org/opencv/5C3EE8" width="38" height="38" alt="OpenCV" /></a>&nbsp;&nbsp;<a href="https://ai.google.dev/" title="Gemini"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" width="38" height="38" alt="Google Gemini" /></a></p>
 
-## Selected builds
+<h2 align="center">PROJECT INDEX / 09 BUILDS</h2>
 
-| Project | Focus |
-|:--|:--|
-| [QueueIQ](https://github.com/Sameer8549/QueueIQ) · [Demo](https://queueiq.vercel.app/) | Healthcare AI · voice · RAG · Matrix Fusion 4.0 national finalist |
-| [AgriVision](https://github.com/Sameer8549/Agrivision-ai-yit) | Crop diagnostics · computer vision |
-| [CipherRanker](https://github.com/Sameer8549/CipherRanker) · [Demo](https://rankker.netlify.app/) | AI-assisted candidate evaluation |
-| [NAMMA KSP](https://github.com/Sameer8549/NAMMAKSP) · [Prototype](https://namma-ksp-50043229029.development.catalystappsail.in/) | Public-safety analytics · synthetic demo data |
-| [TARANG](https://github.com/Sameer8549/TARANG) · [Demo](https://tarang-50043555806.development.catalystappsail.in/) | Coastal emergency-response platform |
-| [OPTIFRESH](https://github.com/Sameer8549/OPTIFRESH) | Food freshness · computer vision |
-| [HealthLens / HealthCheck AI](https://github.com/Sameer8549/HeathCheckAI) · [Demo](https://www.linkedin.com/posts/abdulsameer9_healthlens-demovideo-healthtech-activity-7329375998334885888-BKZS) | HealthTech · Techsium Hackathon 3rd place |
-| ArogyaLens | Visual health assessment · HKBK Technovate 2026 IEEE symposium |
-| IoT Device Monitoring Dashboard | Device telemetry · real-time monitoring |
+<p align="center"><a href="https://github.com/Sameer8549/QueueIQ">QUEUEIQ</a> · <a href="https://queueiq.vercel.app/">LIVE</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/Agrivision-ai-yit">AGRIVISION</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/CipherRanker">CIPHER RANKER</a> · <a href="https://rankker.netlify.app/">LIVE</a><br />
+<a href="https://github.com/Sameer8549/NAMMAKSP">NAMMA KSP</a> · <a href="https://namma-ksp-50043229029.development.catalystappsail.in/">DEMO</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/TARANG">TARANG</a> · <a href="https://tarang-50043555806.development.catalystappsail.in/">DEMO</a><br />
+<a href="https://github.com/Sameer8549/OPTIFRESH">OPTIFRESH</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/HeathCheckAI">HEALTHLENS</a> &nbsp; / &nbsp; AROGYALENS &nbsp; / &nbsp; IOT DEVICE MONITOR</p>
 
-<img src="assets/id-dashboard.svg?v=6" width="100%" alt="Animated credential panel: Matrix Fusion 4.0 finalist, Techsium third place, HKBK Technovate presentation, Google Student Ambassador, five verified certifications, and HKBK engineering education." />
+<p align="center"><img src="assets/id-dashboard.svg?v=9" width="100%" alt="Animated credentials: Matrix Fusion 4.0 national finalist, Techsium third place, five certifications, Google Student Ambassador, HKBK education, and research." /></p>
 
-## Research
-
-[QueueIQ paper](https://doi.org/10.5281/zenodo.20251618) · [AgriVision paper](https://www.academia.edu/166013399/AgriVision_An_Integrated_Smart_Farming_Platform_Using_Deep_Learning_IoT_and_Drone_Based_Remote_Sensing_for_Precision_Agriculture) · [Academia.edu](https://vtu.academia.edu/ABDULSAMEER) · [ORCID](https://orcid.org/0009-0006-9004-1229)
-
-## GitHub activity
+<p align="center"><a href="https://doi.org/10.5281/zenodo.20251618">QUEUEIQ PAPER</a> · <a href="https://www.academia.edu/166013399/AgriVision_An_Integrated_Smart_Farming_Platform_Using_Deep_Learning_IoT_and_Drone_Based_Remote_Sensing_for_Precision_Agriculture">AGRIVISION PAPER</a> · <a href="https://orcid.org/0009-0006-9004-1229">ORCID</a></p>
 
 <p align="center"><a href="https://github.com/Sameer8549"><img src="https://ghchart.rshah.org/1C4EFF/Sameer8549" alt="Live GitHub contribution calendar for Sameer8549" width="92%" /></a></p>
 
-<img src="assets/connect.svg?v=6" width="100%" alt="Animated contact banner for LinkedIn, GitHub, portfolio, research profiles, and email." />
+<p align="center"><img src="assets/connect.svg?v=10" width="100%" alt="Animated links banner for LinkedIn, GitHub, portfolio, research and email." /></p>
 
-<p align="center"><a href="https://linkedin.com/in/abdulsameer9">LinkedIn</a> · <a href="https://asameer.netlify.app/">Portfolio</a> · <a href="https://github.com/Sameer8549">GitHub</a> · <a href="mailto:abdulsameer63167@gmail.com">Email</a></p>
+<p align="center"><a href="mailto:abdulsameer63167@gmail.com">EMAIL</a> · <a href="https://asameer.netlify.app/">PORTFOLIO</a> · <a href="https://linkedin.com/in/abdulsameer9">LINKEDIN</a></p>
 
-<p align="center"><img src="assets/footer.svg?v=6" width="100%" alt="Animated royal-blue closing banner: Build with intent. Ship with evidence." /></p>
+<p align="center"><img src="assets/footer.svg?v=9" width="100%" alt="Animated royal-blue closing banner." /></p>
