@@ -1,4 +1,4 @@
-name: Refresh yearly contribution animation
+name: Refresh rolling-year contribution animation
 
 on:
   schedule:
@@ -28,5 +28,5 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add assets/activity.gif
-          git diff --cached --quiet || git commit -m "Refresh live yearly contribution animation [skip ci]"
+          git diff --cached --quiet || git commit -m "Refresh rolling-year contribution animation [skip ci]"
           git push
