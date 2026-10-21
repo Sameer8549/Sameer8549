@@ -1,7 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="100" viewBox="0 0 1200 100" role="img" aria-labelledby="title">
-  <title id="title">Keep building with curiosity</title>
-  <defs><linearGradient id="line" x1="0" x2="1"><stop stop-color="#1D4ED8" stop-opacity="0"/><stop offset=".5" stop-color="#79B6FF"/><stop offset="1" stop-color="#1D4ED8" stop-opacity="0"/></linearGradient></defs>
-  <path d="M80 35H1120" stroke="url(#line)" stroke-width="2"><animate attributeName="opacity" values=".35;1;.35" dur="5s" repeatCount="indefinite"/></path>
-  <circle cx="600" cy="35" r="4" fill="#8CC4FF"/>
-  <text x="600" y="73" text-anchor="middle" fill="#9EB9E8" font-family="Segoe UI,Arial,sans-serif" font-size="15" letter-spacing="3">BUILD WITH PURPOSE · LEARN IN PUBLIC</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="112" viewBox="0 0 1200 112" role="img" aria-labelledby="ASfootTitle ASfootDesc">
+  <title id="ASfootTitle">Build the system. Keep learning.</title>
+  <desc id="ASfootDesc">A minimal royal-blue closing strip with an animated signal moving through a modular line.</desc>
+  <rect width="1200" height="112" fill="#080B12"/>
+  <rect width="1200" height="8" fill="#1C4EFF"/>
+  <path d="M48 42H1152" stroke="#F4F2EA" stroke-opacity=".28" stroke-width="2"/>
+  <path d="M48 42H1152" stroke="#1C4EFF" stroke-width="6" stroke-dasharray="88 1016">
+    <animate attributeName="stroke-dashoffset" values="0;-1104" dur="6s" repeatCount="indefinite"/>
+  </path>
+  <text x="48" y="82" fill="#F4F2EA" font-family="Consolas,Menlo,monospace" font-size="17" font-weight="700" letter-spacing="1.5">BUILD THE SYSTEM.</text>
+  <text x="1152" y="82" text-anchor="end" fill="#1C4EFF" font-family="Consolas,Menlo,monospace" font-size="17" font-weight="700" letter-spacing="1.5">KEEP LEARNING. ↗</text>
 </svg>
