@@ -1,144 +1,114 @@
 #!/usr/bin/env python3
-"""Fetch and animate Sameer8549's real rolling-year GitHub contribution calendar."""
+"""Animate the exact GitHub activity grid shown in the user's supplied profile screenshot.
+
+The GitHub profile view reports 90 contributions. Its unauthenticated public calendar
+feed differs, so this image is an explicitly dated profile snapshot instead of a misleading
+live feed. Refresh by replacing the matrix from a newer profile screenshot.
+"""
 
 from datetime import date
-from html.parser import HTMLParser
+from math import sin, tau
 from pathlib import Path
-import math
-import re
-import urllib.request
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
-
-USERNAME = "Sameer8549"
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "assets" / "activity.gif"
-WIDTH, HEIGHT = 1200, 340
-BG = (7, 10, 17)
-INK = (242, 242, 236)
-MUTED = (153, 169, 205)
-BLUE = (39, 82, 255)
-LEVELS = [(18, 26, 44), (20, 48, 103), (25, 73, 161), (35, 105, 220), (91, 169, 255)]
+WIDTH, HEIGHT = 1200, 360
+BG = (7, 11, 20)
+INK = (242, 245, 250)
+MUTED = (153, 173, 208)
+BLUE = (40, 87, 255)
+LEVELS = [(21, 27, 35), (18, 62, 42), (12, 99, 57), (16, 139, 74), (45, 194, 105)]
+# 53 calendar columns x 7 weekdays, sampled from the supplied 90-contribution GitHub profile view.
+ROWS = [
+    "00000000000000000000000000000001000000200000000000200",
+    "00200000000000000020000000000000001000000010000200000",
+    "00000000000000000000000000000000000010200010000400000",
+    "00000000000000000000000100000000400000200000004000121",
+    "00000000010000000000000200000000101000000000000000000",
+    "00000000000000000000100000000000011000000110000000400",
+    "00000000000000000000000000000000000002100102000000100",
+]
+TOTAL = 90
+START = date(2025, 10, 19)  # First Sunday visible in the supplied October-to-October calendar.
+END = date(2026, 10, 21)
 
-class CalendarParser(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.cells = {}
-    def handle_starttag(self, tag, attrs):
-        if tag != "td":
-            return
-        values = dict(attrs)
-        day, level = values.get("data-date"), values.get("data-level")
-        if day and level is not None:
-            self.cells[date.fromisoformat(day)] = int(level)
 
-def fetch_calendar():
-    url = f"https://github.com/users/{USERNAME}/contributions"
-    request = urllib.request.Request(url, headers={"User-Agent": "Sameer8549-profile-activity/3.0"})
-    with urllib.request.urlopen(request, timeout=30) as response:
-        html = response.read().decode("utf-8", "replace")
-    match = re.search(r"<h2[^>]*>(.*?)</h2>", html, re.S)
-    if not match:
-        raise RuntimeError("GitHub contribution heading was not found")
-    heading = " ".join(re.sub(r"<[^>]+>", " ", match.group(1)).split())
-    total_match = re.search(r"([\d,]+)\s+contributions?\s+in the last year", heading, re.I)
-    if not total_match:
-        raise RuntimeError(f"Unexpected GitHub contribution heading: {heading!r}")
-    parser = CalendarParser()
-    parser.feed(html)
-    if not parser.cells:
-        raise RuntimeError("GitHub contribution cells were not found")
-    return int(total_match.group(1).replace(",", "")), parser.cells
-
-def font(size, bold=False):
+def font(size, bold=False, mono=False):
     options = [
+        Path("C:/Windows/Fonts/consolab.ttf" if bold else "C:/Windows/Fonts/consola.ttf") if mono else
         Path("C:/Windows/Fonts/arialbd.ttf" if bold else "C:/Windows/Fonts/arial.ttf"),
-        Path("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
+        Path("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf" if mono else
+             ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")),
     ]
-    for option in options:
-        if option.exists():
-            return ImageFont.truetype(str(option), size)
+    for candidate in options:
+        if candidate.exists():
+            return ImageFont.truetype(str(candidate), size)
     return ImageFont.load_default()
 
-def render(total, contributions):
-    start, end = min(contributions), max(contributions)
-    first_sunday = start.toordinal() - ((start.weekday() + 1) % 7)
-    week_count = math.ceil((end.toordinal() - first_sunday + 1) / 7)
-    cols, rows, cell, gap = week_count, 7, 14, 5
-    stride = cell + gap
-    grid_w = cols * cell + (cols - 1) * gap
-    grid_x, grid_y = (WIDTH - grid_w) // 2, 188
-    canvas = Image.new("RGB", (WIDTH, HEIGHT), BG)
-    draw = ImageDraw.Draw(canvas)
-    draw.rectangle((0, 0, WIDTH, 7), fill=BLUE)
-    draw.text((42, 25), f"{total:,}", font=font(54, True), fill=INK)
-    draw.text((45, 89), "CONTRIBUTIONS / LAST 12 MONTHS", font=font(14, True), fill=BLUE)
-    draw.text((1158, 34), "LIVE FIELD RECORD", font=font(14, True), fill=MUTED, anchor="ra")
-    draw.text((1158, 61), f"{start:%d %b %Y} — {end:%d %b %Y}", font=font(16), fill=INK, anchor="ra")
-    draw.line((42, 125, 1158, 125), fill=(51, 65, 99), width=1)
-    draw.text((42, 143), "PUBLIC GITHUB ACTIVITY", font=font(11, True), fill=MUTED)
 
-    # Month and weekday labels mirror GitHub's familiar calendar.
-    first = date.fromordinal(first_sunday)
-    for year in range(start.year, end.year + 1):
-        for month in range(1, 13):
-            month_start = date(year, month, 1)
-            label_day = max(start, month_start) if month_start <= end and month_start.month == start.month and year == start.year else month_start
-            if start <= label_day <= end:
-                col = (label_day.toordinal() - first_sunday) // 7
-                draw.text((grid_x + col * stride, 166), month_start.strftime("%b").upper(),
-                          font=font(10, True), fill=MUTED)
-    for label, weekday_row in [("MON", 1), ("WED", 3), ("FRI", 5)]:
-        draw.text((42, grid_y + weekday_row * stride + 2), label, font=font(9, True), fill=MUTED)
-
-    # Genuine calendar values and GitHub's contribution intensity, positioned on the weekday grid.
-    positions = {}
-    for day, level in contributions.items():
-        col = (day.toordinal() - first_sunday) // 7
-        row = (day.weekday() + 1) % 7
-        x, y = grid_x + col * stride, grid_y + row * stride
-        draw.rounded_rectangle((x, y, x + cell - 1, y + cell - 1), radius=2, fill=LEVELS[level])
-        if level:
-            positions[day] = (x, y, level)
-
-    # Independent breathing highlights on real active days; no added activity, cursor, or path.
+def render():
+    if len(ROWS) != 7 or any(len(row) != 53 for row in ROWS):
+        raise ValueError("Contribution snapshot must contain 53 columns and 7 weekdays")
+    cells = [(col, row, int(ROWS[row][col])) for col in range(53) for row in range(7)]
+    width, gap = 14, 5
+    stride = width + gap
+    grid_w = 53 * width + 52 * gap
+    grid_x, grid_y = (WIDTH - grid_w) // 2, 202
     frames = []
-    frame_count = 32
-    for frame_index in range(frame_count):
-        phase = frame_index / frame_count * math.tau
+    for frame_index in range(40):
+        canvas = Image.new("RGB", (WIDTH, HEIGHT), BG)
+        d = ImageDraw.Draw(canvas)
+        d.rectangle((0, 0, WIDTH, 7), fill=BLUE)
+        d.text((42, 22), "90", font=font(55, True), fill=INK)
+        d.text((44, 83), "CONTRIBUTIONS / LAST 12 MONTHS", font=font(14, True, mono=True), fill=BLUE)
+        d.text((1158, 28), "PROFILE SNAPSHOT", font=font(13, True, mono=True), fill=MUTED, anchor="ra")
+        d.text((1158, 56), "21 OCT 2026 · GITHUB", font=font(15, True), fill=INK, anchor="ra")
+        d.line((42, 121, 1158, 121), fill=(51, 65, 99), width=1)
+        d.text((42, 143), "PROFILE CONTRIBUTION RECORD", font=font(11, True, mono=True), fill=MUTED)
+        months = [(2025, 10), *[(2026, month) for month in range(1, 11)]]
+        for year, month in months:
+            month_date = date(year, month, 1)
+            label_date = max(START, month_date) if (year, month) == (START.year, START.month) else month_date
+            col = (label_date - START).days // 7 + (0 if label_date == START else 1)
+            d.text((grid_x + col * stride, 174), label_date.strftime("%b").upper(),
+                   font=font(10, True), fill=MUTED)
+        for label, row in [("MON", 1), ("WED", 3), ("FRI", 5)]:
+            d.text((42, grid_y + row * stride + 2), label, font=font(9, True), fill=MUTED)
+        d.text((884, 338), "LESS", font=font(9, True), fill=MUTED)
+        for index, color in enumerate(LEVELS):
+            x = 927 + index * 22
+            d.rounded_rectangle((x, 337, x + 14, 351), radius=2, fill=color)
+        d.text((1050, 338), "MORE", font=font(9, True), fill=MUTED)
+        active = []
+        for col, row, level in cells:
+            x, y = grid_x + col * stride, grid_y + row * stride
+            d.rounded_rectangle((x, y, x + width - 1, y + width - 1), radius=2,
+                                fill=LEVELS[level])
+            if level:
+                active.append((col, row, level, x, y))
+        # Brighter blue light breathes across the exact active cells; no fabricated days or counts.
         glow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
-        glow_draw = ImageDraw.Draw(glow)
-        for day, (x, y, level) in positions.items():
-            offset = ((day.toordinal() * 47 + level * 23) % 101) / 101 * math.tau
-            strength = (math.sin(phase + offset) + 1) / 2
-            radius = 2 + int(strength * 4)
-            alpha = int(45 + strength * 165)
-            glow_draw.rounded_rectangle(
-                (x - radius, y - radius, x + cell - 1 + radius, y + cell - 1 + radius),
-                radius=4, fill=(*BLUE, alpha)
-            )
-        glow = glow.filter(ImageFilter.GaussianBlur(2))
-        frame = canvas.convert("RGBA")
-        frame.alpha_composite(glow)
-        # A small, legible accent pulse on stronger genuine activity squares.
-        pulse = (math.sin(phase) + 1) / 2
-        accent_alpha = int(30 + pulse * 70)
-        accent = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
-        accent_draw = ImageDraw.Draw(accent)
-        for x, y, level in positions.values():
-            if level >= 2:
-                accent_draw.rounded_rectangle((x + 2, y + 2, x + cell - 3, y + cell - 3), radius=2,
-                                              fill=(118, 190, 255, accent_alpha))
-        frame.alpha_composite(accent)
-        frames.append(frame.convert("RGB"))
+        gd = ImageDraw.Draw(glow)
+        phase = frame_index / 40 * tau
+        for col, row, level, x, y in active:
+            seed = (col * 31 + row * 47 + level * 13) % 97
+            strength = (sin(phase + seed / 97 * tau) + 1) / 2
+            radius = 1 + round(strength * 4)
+            alpha = int(25 + 135 * strength)
+            gd.rounded_rectangle((x - radius, y - radius, x + width - 1 + radius, y + width - 1 + radius),
+                                 radius=4, fill=(*BLUE, alpha))
+        canvas = canvas.convert("RGBA")
+        canvas.alpha_composite(glow.filter(ImageFilter.GaussianBlur(2)))
+        frames.append(canvas.convert("RGB"))
     return frames
 
+
 def main():
-    total, contributions = fetch_calendar()
-    frames = render(total, contributions)
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    frames[0].save(OUTPUT, save_all=True, append_images=frames[1:], duration=110, loop=0, optimize=True, disposal=2)
-    print(f"Wrote {OUTPUT} with {len(frames)} animated frames from {total:,} public contributions in the last 12 months.")
+    frames = render()
+    frames[0].save(OUTPUT, save_all=True, append_images=frames[1:], duration=95,
+                   loop=0, optimize=True, disposal=2)
+    print(f"Wrote {OUTPUT}: animated 90-contribution profile snapshot, 40 frames.")
 
 if __name__ == "__main__":
     main()

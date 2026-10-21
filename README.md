@@ -6,7 +6,7 @@
 
 <p align="center"><img src="assets/about.gif" width="100%" alt="Animated brutalist panel: ideas into systems across health, agriculture, and public services; HKBK ISE and Google Student Ambassador." /></p>
 
-<p align="center"><img src="assets/stack.gif" width="100%" alt="Royal-blue animated technology stack banner, with verified tools grouped by discipline below." /></p>
+<p align="center"><img src="assets/stack.gif" width="100%" alt="Animated royal-blue technology ticker with verified language, application, AI, vision, data, and delivery tools scrolling in four lanes; official linked icons follow below." /></p>
 
 <p align="center">
 <a href="https://www.python.org/" title="Python"><img src="https://cdn.simpleicons.org/python/3776AB" width="30" height="30" alt="Python" /></a>&nbsp;
@@ -30,16 +30,15 @@
 <a href="https://www.linux.org/" title="Linux"><img src="https://cdn.simpleicons.org/linux/FCC624" width="30" height="30" alt="Linux" /></a>&nbsp;
 <a href="https://git-scm.com/" title="Git"><img src="https://cdn.simpleicons.org/git/F05032" width="30" height="30" alt="Git" /></a>
 </p>
-<h2 align="center">PROJECT INDEX</h2>
+<p align="center"><img src="assets/projects.gif" width="100%" alt="Animated royal-blue brutalist project index featuring ten verified builds by Abdul Sameer: AgriVision, RailSense AI, Evidentia, QueueIQ, CipherRanker, NAMMA KSP, TARANG, OPTIFRESH, HealthLens, and SpecForge." /></p>
 
-<p align="center"><a href="https://github.com/Sameer8549/Agrivision-ai-yit">AGRIVISION</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/RailSense-">RAILSENSE AI</a> · <a href="https://railsense-60074625517.development.catalystserverless.in/app/index.html">LIVE</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/evidentia">EVIDENTIA</a><br />
-<a href="https://github.com/Sameer8549/QueueIQ">QUEUEIQ</a> · <a href="https://queueiq.vercel.app/">LIVE</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/CipherRanker">CIPHER RANKER</a> · <a href="https://rankker.netlify.app/">LIVE</a><br />
+<p align="center"><a href="https://github.com/Sameer8549/Agrivision-ai-yit">AGRIVISION</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/RailSense-">RAILSENSE AI</a> · <a href="https://railsense-60074625517.development.catalystserverless.in/app/index.html">LIVE</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/evidentia">EVIDENTIA</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/QueueIQ">QUEUEIQ</a> · <a href="https://queueiq.vercel.app/">LIVE</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/CipherRanker">CIPHER RANKER</a> · <a href="https://rankker.netlify.app/">LIVE</a><br />
 <a href="https://github.com/Sameer8549/NAMMAKSP">NAMMA KSP</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/TARANG">TARANG</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/OPTIFRESH">OPTIFRESH</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/HeathCheckAI">HEALTHLENS</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/SpecForge">SPECFORGE</a></p>
 
 <p align="center"><img src="assets/research.gif" width="100%" alt="Animated research and publication panel: QueueIQ and AgriVision papers, ArogyaLens at HKBK Technovate 2026, and verified credentials." /></p>
 <p align="center"><a href="https://doi.org/10.5281/zenodo.20251618">QUEUEIQ PAPER</a> &nbsp; / &nbsp; <a href="https://www.academia.edu/166013399/AgriVision_An_Integrated_Smart_Farming_Platform_Using_Deep_Learning_IoT_and_Drone_Based_Remote_Sensing_for_Precision_Agriculture">AGRIVISION PAPER</a> &nbsp; / &nbsp; <a href="https://orcid.org/0009-0006-9004-1229">ORCID</a></p>
 
-<p align="center"><img src="assets/activity.gif" width="100%" alt="Live animated GitHub contribution heatmap for the last 12 months, generated from GitHub's public contribution calendar and refreshed daily." /></p>
+<p align="center"><img src="assets/activity.gif" width="100%" alt="Animated GitHub profile contribution snapshot: 90 contributions in the last 12 months as shown on 21 October 2026. The genuine active-day pattern is redrawn in royal blue and animated." /></p>
 
 <p align="center"><img src="assets/connect.gif" width="100%" alt="Animated contact panel linking to LinkedIn, GitHub, portfolio, and email." /></p>
 <p align="center"><a href="https://linkedin.com/in/abdulsameer9">LINKEDIN</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549">GITHUB</a> &nbsp; / &nbsp; <a href="https://asameer.netlify.app/">PORTFOLIO</a> &nbsp; / &nbsp; <a href="mailto:abdulsameer63167@gmail.com">EMAIL</a></p>
