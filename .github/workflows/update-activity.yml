@@ -2,11 +2,6 @@ name: Render contribution snapshot animation
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "scripts/generate_activity.py"
-      - ".github/workflows/update-activity.yml"
 
 permissions:
   contents: write
