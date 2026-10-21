@@ -1,37 +1,63 @@
-# Abdul Sameer
-# 💫 About Me:
-👋 Hi, I’m Abdul Sameer<br><br>💻 Aspiring Engineer | AI & Cloud Enthusiast | Web Developer | Google Student Ambassador 🚀<br><br>🔹 Third-Year Information Science Engineering student at HKBK College of Engineering, Bengaluru<br>🔹 Passionate about Artificial Intelligence 🤖, Cybersecurity 🔒, and Software Development ⚡<br>🔹 Exploring the intersection of technology & innovation through hands-on projects, internships, and hackathons 🎯<br><br><br>🌟 What I Do<br>	•	🤖 Build AI-powered solutions (RAG-based chatbots, Generative AI apps)<br>	•	☁ Work with Cloud Platforms (AWS, GCP, OCI)<br>	•	🐍 Skilled in Python, Data Science & Machine Learning<br>	•	🌐 Develop Web Applications with modern frameworks<br>	•	📊 Perform Data Analysis & Visualization<br><br><br>🎓 Experience & Roles<br>	•	🚀 Google Student Ambassador<br>	•	🎯 Campus Ambassador @ LetsUpgrade<br>	•	🌍 Fundraising Intern @ She Can Foundation (empowering women 💪)<br>	•	🧠 Machine Learning Intern @ Prodigy InfoTech<br>	•	🐍 Python Intern @ CodSoft<br>	•	☁ Completed multiple Virtual Internships (AWS, Walmart, J.P. Morgan, Accenture)<br><br><br>🏆 Highlights<br>	•	🥇 Recognition at National Level IEEE Technnovate-2K25 (Mini Project Expo)<br>	•	📜 Certifications in Generative AI, Cloud, Data Science, Kubernetes, Cybersecurity<br>	•	🌐 Languages: English, Hindi, Telugu, Kannada<br><br><br>🌱 Currently Learning<br>	•	⚡ Programming, Data Structures & Algorithms<br>	•	🔒 Cybersecurity<br>	•	🧩 AI/ML frameworks<br><br><br>📫 Connect with Me<br>	•	✉ abdulsameer63167@gmail.com<br>	•	🔗 LinkedIn<br>	•	🖥 GitHub<br><br>💡 “Passionate about learning, building, and contributing to tech that makes a difference.” ✨
+<div align="center">
+  <img src="assets/abdul-sameer-hero.svg" alt="Abdul Sameer — AI and full-stack developer" width="100%" />
+</div>
 
+<div align="center">
+  <a href="https://asameer.netlify.app">Portfolio</a> ·
+  <a href="https://www.linkedin.com/in/abdulsameer9/">LinkedIn</a> ·
+  <a href="https://vtu.academia.edu/ABDULSAMEER">Academia.edu</a> ·
+  <a href="https://orcid.org/0009-0006-9004-1229">ORCID</a> ·
+  <a href="mailto:abdulsameer63167@gmail.com">Email</a>
+</div>
 
-## 🌐 Socials:
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/https://www.instagram.com/_sameer__9_?igsh=ZTQ5bzRjNjd4ZTdh&utm_source=qr) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/https://www.linkedin.com/in/abdulsameer9/) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:abdulsameer63167@gmail.com) [![Portfolio](https://asameer.netlify.app/)]
+## About
 
-# 💻 Tech Stack:
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Scala](https://img.shields.io/badge/scala-%23DC322F.svg?style=for-the-badge&logo=scala&logoColor=white) ![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white) ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) ![Angular.js](https://img.shields.io/badge/angular.js-%23E23237.svg?style=for-the-badge&logo=angularjs&logoColor=white) ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) ![Anaconda](https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white) ![Vue.js](https://img.shields.io/badge/vue.js-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Couchbase](https://img.shields.io/badge/Couchbase-EA2328?style=for-the-badge&logo=couchbase&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Neo4J](https://img.shields.io/badge/Neo4j-008CC1?style=for-the-badge&logo=neo4j&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34) ![Apache Flink](https://img.shields.io/badge/Apache%20Flink-E6526F?style=for-the-badge&logo=Apache%20Flink&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Framer](https://img.shields.io/badge/Framer-black?style=for-the-badge&logo=framer&logoColor=blue) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black) ![Scipy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white) ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=Sameer8549&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=Sameer8549&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Sameer8549&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+I’m Abdul Sameer, an AI/ML and full-stack developer and research author. I work across computer vision, healthcare and agriculture applications, web development, and AI product prototypes, with an interest in turning research ideas into useful software.
 
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=Sameer8549&limit=5&theme=dark&combine_all_yearly_contributions=true)
+I enjoy building end-to-end systems and learning through practical projects, research, internships, and hackathons.
 
----
-[![](https://visitcount.itsvg.in/api?id=Sameer8549&icon=0&color=0)](https://visitcount.itsvg.in)
+## Selected projects
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+| Project | Focus |
+| --- | --- |
+| QueueIQ · [Research paper](https://www.academia.edu/167296194/QueueIQ_Real_Time_Hospital_Queue_Intelligence_Using_LSTM_Prediction_Multilingual_NLP_and_RAG_Powered_Health_Education) | Hospital queue intelligence, wait-time prediction, multilingual NLP, and retrieval-augmented health education. |
+| [AgriVision](https://github.com/Sameer8549/Agrivision-ai-yit) · [Research paper](https://www.academia.edu/166013399/AgriVision_An_Integrated_Smart_Farming_Platform_Using_Deep_Learning_IoT_and_Drone_Based_Remote_Sensing_for_Precision_Agriculture) | Smart farming and crop-disease diagnosis using computer vision, IoT, and drone-based remote sensing. |
+| [NAMMA KSP](https://github.com/Sameer8549/NAMMAKSP) | AI crime-intelligence platform for FIR analysis, offender history, heatmaps, and investigation workflows. |
+| [TARANG](https://github.com/Sameer8549/TARANG) | Coastal emergency-response workflows for SOS alerts, vessel tracking, and rescue dispatch. |
+| [CipherRanker](https://github.com/Sameer8549/CipherRanker) · [Live demo](https://rankker.netlify.app/) | Recruitment intelligence tool for evidence-based candidate scoring, auditing, and ranked CSV export. |
 
+## Experience & recognition
 
-I am Abdul Sameer, an AI/ML developer, full-stack web developer, and published research author focused on computer vision, healthcare AI, precision agriculture, React websites, FastAPI backends, and AI MVP development.
+- Google Student Ambassador
+- Campus Ambassador at LetsUpgrade
+- Fundraising Intern at She Can Foundation
+- Machine Learning Intern at Prodigy InfoTech; Python Intern at CodSoft
+- Recognition at IEEE Technnovate 2K25 Mini Project Expo (the existing profile does not specify an award category)
+- Virtual internship programs listed on the existing profile: AWS, Walmart, JPMorgan Chase, and Accenture
 
-I have built AI and full-stack projects including ArogyaLens, a real-time visual health analysis system using OpenCV, YOLOv8, NVIDIA Nemotron, and Gemini; QueueIQ, a real-time hospital queue intelligence system using LSTM prediction, multilingual NLP, and RAG-powered health education; and AgriVision, a smart farming platform using deep learning, IoT, and drone-based remote sensing.
+## Skills
 
-My published research includes QueueIQ and AgriVision. I maintain Academia.edu and ORCID profiles to connect my research and technical work.
+**Software & web:** Python · JavaScript · React · Next.js · FastAPI
 
-Portfolio: https://asameer.netlify.app
-GitHub: https://github.com/Sameer8549
-Academia: https://vtu.academia.edu/ABDULSAMEER
-ORCID: https://orcid.org/0009-0006-9004-1229
-Email: abdulsameer63167@gmail.com
+**AI & data:** Computer vision · YOLOv8 · OpenCV · LSTM · LightGBM · multilingual NLP · retrieval-augmented generation (RAG) · generative AI
 
-Open to AI/ML internships, freelance AI projects, full-stack development work, and AI MVP development opportunities.
+**Platforms & infrastructure:** Firebase · Google Cloud · PostgreSQL · ChromaDB · Docker · Kubernetes · Git · GitHub
+
+*Grouped from the public project repositories and research descriptions; this is a list of technologies used or described in those works, not a proficiency ranking.*
+
+## Research & profiles
+
+- [QueueIQ paper](https://www.academia.edu/167296194/QueueIQ_Real_Time_Hospital_Queue_Intelligence_Using_LSTM_Prediction_Multilingual_NLP_and_RAG_Powered_Health_Education)
+- [AgriVision paper](https://www.academia.edu/166013399/AgriVision_An_Integrated_Smart_Farming_Platform_Using_Deep_Learning_IoT_and_Drone_Based_Remote_Sensing_for_Precision_Agriculture)
+- [Academia.edu profile](https://vtu.academia.edu/ABDULSAMEER)
+- [ORCID](https://orcid.org/0009-0006-9004-1229)
+
+## GitHub activity
+
+[![Contribution graph](https://ghchart.rshah.org/1D4ED8/Sameer8549)](https://github.com/Sameer8549)
+
+*Live contribution graph from a third-party service; it may be unavailable at times.*
+
+<div align="center">
+  <img src="assets/abdul-sameer-footer.svg" alt="Build with purpose · learn in public" width="100%" />
+</div>

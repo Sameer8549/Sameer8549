@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="100" viewBox="0 0 1200 100" role="img" aria-labelledby="title">
+  <title id="title">Keep building with curiosity</title>
+  <defs><linearGradient id="line" x1="0" x2="1"><stop stop-color="#1D4ED8" stop-opacity="0"/><stop offset=".5" stop-color="#79B6FF"/><stop offset="1" stop-color="#1D4ED8" stop-opacity="0"/></linearGradient></defs>
+  <path d="M80 35H1120" stroke="url(#line)" stroke-width="2"><animate attributeName="opacity" values=".35;1;.35" dur="5s" repeatCount="indefinite"/></path>
+  <circle cx="600" cy="35" r="4" fill="#8CC4FF"/>
+  <text x="600" y="73" text-anchor="middle" fill="#9EB9E8" font-family="Segoe UI,Arial,sans-serif" font-size="15" letter-spacing="3">BUILD WITH PURPOSE · LEARN IN PUBLIC</text>
+</svg>
