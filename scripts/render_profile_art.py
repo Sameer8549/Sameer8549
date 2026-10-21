@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render a coherent set of animated brutalist banners for the profile README."""
 
-from math import sin, tau
+from math import cos, sin, tau
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -48,6 +48,17 @@ def frame_base(size, kicker, right="SAMEER8549"):
 def save(name, frames, duration=95):
     frames[0].save(ASSETS / f"{name}.gif", save_all=True, append_images=frames[1:],
                    duration=duration, loop=0, optimize=True, disposal=2)
+
+
+def arrow(d, x, y, color, size=14, diagonal=False):
+    width = max(2, size // 7)
+    if diagonal:
+        d.line((x, y + size, x + size, y), fill=color, width=width)
+        d.line((x + size - size // 2, y, x + size, y, x + size, y + size // 2), fill=color, width=width)
+    else:
+        mid = y + size // 2
+        d.line((x, mid, x + size, mid), fill=color, width=width)
+        d.line((x + size // 2, y, x + size, mid, x + size // 2, y + size), fill=color, width=width)
 
 
 def marquee(items, fnt, color=ICE, sep_color=MUTED, gap=66, height=46):
@@ -169,33 +180,28 @@ def project_panel():
     projects = ["AGRIVISION", "RAILSENSE AI", "EVIDENTIA", "QUEUEIQ", "CIPHER RANKER",
                 "NAMMA KSP", "TARANG", "OPTIFRESH", "HEALTHLENS", "SPECFORGE"]
     card_w, card_h, gap = 214, 76, 13
-    lane_w = 1124
     frames = []
     for i in range(count):
         im = frame_base((w, h), "03 / SELECTED BUILDS", "REPOSITORIES · DEMOS LINKED BELOW")
         d = ImageDraw.Draw(im)
         d.text((38, 47), "PROJECT INDEX", font=font(43, True, impact=True), fill=NAVY)
         d.text((1162, 62), "10 BUILDS", font=font(12, True, mono=True), fill=ICE, anchor="ra")
-        for row in range(2):
-            items = projects[row * 5:(row + 1) * 5]
-            y = 112 + row * 92
-            d.rectangle((38, y, 1162, y + card_h), fill=NAVY)
-            step = card_w + gap
-            total = len(items) * step
-            movement = (i * 2 * (1 if row == 0 else -1)) % total
-            for j in range(10):
-                idx = j % len(items)
-                x = 38 + j * step - movement
-                if x > 1162 or x + card_w < 38:
-                    continue
-                d.rectangle((x, y + 5, x + card_w, y + card_h - 5), fill=PANEL_ALT if (idx + row) % 2 else PANEL,
-                            outline=ICE if idx == ((i // 10) % 5) else LINE, width=2 if idx == ((i // 10) % 5) else 1)
-                d.text((x + 12, y + 13), f"{row * 5 + idx + 1:02}", font=font(10, True, mono=True), fill=MUTED)
-                name_size = 19 if len(items[idx]) < 12 else 16
-                d.text((x + 12, y + 34), items[idx], font=font(name_size, True), fill=ICE)
-                d.text((x + card_w - 26, y + 12), "↗", font=font(17, True), fill=ICE)
+        for idx, name in enumerate(projects):
+            row, col = divmod(idx, 5)
+            x, y = 38 + col * (card_w + gap), 112 + row * 92
+            d.rectangle((x, y, x + card_w, y + card_h), fill=PANEL if row == 0 else PANEL_ALT,
+                        outline=ICE, width=1)
+            d.rectangle((x, y, x + 5, y + card_h), fill=NAVY)
+            d.text((x + 13, y + 12), f"{idx + 1:02}", font=font(10, True, mono=True), fill=MUTED)
+            name_size = 19 if len(name) < 12 else 16
+            d.text((x + 13, y + 35), name, font=font(name_size, True), fill=ICE)
+            # The repository cue moves toward its target; titles stay fixed and readable.
+            pulse = (1 - cos(i / count * tau)) / 2
+            arrow_x = x + card_w - 33 + round(8 * pulse)
+            arrow(d, arrow_x, y + 10, ICE, size=13, diagonal=True)
         d.text((40, 314), "RESEARCH / PRODUCT / APPLIED AI", font=font(11, True, mono=True), fill=NAVY)
-        d.text((1160, 314), "OPEN A BUILD ↗", font=font(11, True, mono=True), fill=NAVY, anchor="ra")
+        d.text((1117, 314), "OPEN A BUILD", font=font(11, True, mono=True), fill=NAVY, anchor="ra")
+        arrow(d, 1133, 311, NAVY, size=11, diagonal=True)
         frames.append(im)
     save("projects", frames, 85)
 
@@ -222,7 +228,9 @@ def research_panel():
             d.text((x + 17, y + 16), f"0{idx + 1} / {'PAPER' if idx < 2 else 'SYMPOSIUM'}", font=font(10, True, mono=True), fill=ink)
             d.text((x + 17, y + 39), title, font=font(23, True), fill=ink)
             d.text((x + 17, y + 72), detail, font=font(10, True, mono=True), fill=ink if focus else MUTED)
-            d.text((x + 17, y + 91), f"{cta}  ↗", font=font(10, True, mono=True), fill=ink)
+            d.text((x + 17, y + 91), cta, font=font(10, True, mono=True), fill=ink)
+            cta_width = int(d.textlength(cta, font=font(10, True, mono=True)))
+            arrow(d, x + 21 + cta_width, y + 90, ink, size=10, diagonal=True)
             if focus:
                 sweep = x + 6 + (i % 16) * (cw - 12) // 16
                 d.rectangle((sweep, y + 5, sweep + 5, y + ch - 1), fill=ROYAL)
@@ -249,8 +257,8 @@ def connect_panel():
             d.text((495, y + 9), f"0{idx + 1}", font=font(11, True, mono=True), fill=ink)
             d.text((545, y + 8), label, font=font(15, True, mono=True), fill=ink)
             shift = 8 + (i % 10) * 2
-            ax = 1118 + shift
-            d.text((ax, y + 3), "→", font=font(22, True), fill=ink)
+            ax = 1123 + shift
+            arrow(d, ax, y + 11, ink, size=14)
         frames.append(im)
     save("connect", frames, 100)
 

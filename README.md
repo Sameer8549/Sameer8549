@@ -32,8 +32,13 @@
 </p>
 <p align="center"><img src="assets/projects.gif" width="100%" alt="Animated royal-blue brutalist project index featuring ten verified builds by Abdul Sameer: AgriVision, RailSense AI, Evidentia, QueueIQ, CipherRanker, NAMMA KSP, TARANG, OPTIFRESH, HealthLens, and SpecForge." /></p>
 
-<p align="center"><a href="https://github.com/Sameer8549/Agrivision-ai-yit">AGRIVISION</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/RailSense-">RAILSENSE AI</a> · <a href="https://railsense-60074625517.development.catalystserverless.in/app/index.html">LIVE</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/evidentia">EVIDENTIA</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/QueueIQ">QUEUEIQ</a> · <a href="https://queueiq.vercel.app/">LIVE</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/CipherRanker">CIPHER RANKER</a> · <a href="https://rankker.netlify.app/">LIVE</a><br />
-<a href="https://github.com/Sameer8549/NAMMAKSP">NAMMA KSP</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/TARANG">TARANG</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/OPTIFRESH">OPTIFRESH</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/HeathCheckAI">HEALTHLENS</a> &nbsp; / &nbsp; <a href="https://github.com/Sameer8549/SpecForge">SPECFORGE</a></p>
+| BUILDS | BUILDS |
+|:--|:--|
+| [AGRIVISION](https://github.com/Sameer8549/Agrivision-ai-yit) | [RAILSENSE AI](https://github.com/Sameer8549/RailSense-) · [LIVE](https://railsense-60074625517.development.catalystserverless.in/app/index.html) |
+| [EVIDENTIA](https://github.com/Sameer8549/evidentia) | [QUEUEIQ](https://github.com/Sameer8549/QueueIQ) · [LIVE](https://queueiq.vercel.app/) |
+| [CIPHER RANKER](https://github.com/Sameer8549/CipherRanker) · [LIVE](https://rankker.netlify.app/) | [NAMMA KSP](https://github.com/Sameer8549/NAMMAKSP) |
+| [TARANG](https://github.com/Sameer8549/TARANG) | [OPTIFRESH](https://github.com/Sameer8549/OPTIFRESH) |
+| [HEALTHLENS](https://github.com/Sameer8549/HeathCheckAI) | [SPECFORGE](https://github.com/Sameer8549/SpecForge) |
 
 <p align="center"><img src="assets/research.gif" width="100%" alt="Animated research and publication panel: QueueIQ and AgriVision papers, ArogyaLens at HKBK Technovate 2026, and verified credentials." /></p>
 <p align="center"><a href="https://doi.org/10.5281/zenodo.20251618">QUEUEIQ PAPER</a> &nbsp; / &nbsp; <a href="https://www.academia.edu/166013399/AgriVision_An_Integrated_Smart_Farming_Platform_Using_Deep_Learning_IoT_and_Drone_Based_Remote_Sensing_for_Precision_Agriculture">AGRIVISION PAPER</a> &nbsp; / &nbsp; <a href="https://orcid.org/0009-0006-9004-1229">ORCID</a></p>
