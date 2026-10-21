@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="heroTitle heroDesc">
+<title id="heroTitle">Abdul Sameer | AI/ML Engineer and Full-Stack Developer</title>
+<desc id="heroDesc">Royal-blue brutalist animated profile card for Abdul Sameer in Bengaluru, India. AI and machine learning engineer building computer vision, generative AI, healthcare, agriculture, and full-stack software products. Static content remains visible when animation is unavailable.</desc>
+<defs>
+ <pattern id="heroGrid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#5475ff" stroke-opacity=".12"/></pattern>
+ <radialGradient id="heroGlow"><stop stop-color="#1c4eff" stop-opacity=".38"/><stop offset="1" stop-color="#10131e" stop-opacity="0"/></radialGradient>
+ <linearGradient id="heroName" x1="0" x2="1"><stop stop-color="#f5f4ef"/><stop offset=".62" stop-color="#f5f4ef"/><stop offset="1" stop-color="#1c4eff"/></linearGradient>
+ <linearGradient id="heroBeam"><stop stop-color="#1c4eff" stop-opacity="0"/><stop offset=".5" stop-color="#f5f4ef"/><stop offset="1" stop-color="#1c4eff" stop-opacity="0"/></linearGradient>
+ <clipPath id="heroClip"><rect x="1" y="1" width="1198" height="598"/></clipPath>
+</defs>
+<g clip-path="url(#heroClip)">
+ <rect width="1200" height="600" fill="#090b12"/><rect width="1200" height="600" fill="url(#heroGrid)"/>
+ <ellipse cx="947" cy="286" rx="410" ry="372" fill="url(#heroGlow)"/>
+ <path d="M35 82H1165M35 510H1165" stroke="#39435c" stroke-width="1"/>
+ <text x="42" y="52" fill="#c7cedf" font-family="Consolas,Menlo,monospace" font-size="13" letter-spacing="2">SAMEER8549 / ENGINEER PROFILE</text>
+ <text x="1158" y="52" text-anchor="end" fill="#1c4eff" font-family="Consolas,Menlo,monospace" font-size="13" letter-spacing="2">BENGALURU, INDIA</text>
+ <path d="M42 104l10 0 -8 19h-10ZM58 104l10 0 -8 19h-10ZM74 104l10 0 -8 19h-10Z" fill="#1c4eff"/>
+ <text x="42" y="190" fill="url(#heroName)" font-family="Arial Black,Arial,sans-serif" font-size="104" font-weight="900" letter-spacing="-4">ABDUL</text>
+ <text x="38" y="292" fill="#f5f4ef" font-family="Arial Black,Arial,sans-serif" font-size="96" font-weight="900" letter-spacing="-4">SAMEER</text>
+ <path d="M42 317H674" stroke="#29334b" stroke-width="2"/><path d="M42 317H674" stroke="#1c4eff" stroke-width="5" stroke-dasharray="110 522"><animate attributeName="stroke-dashoffset" values="0;-632" dur="5.5s" repeatCount="indefinite"/></path>
+ <text x="44" y="359" fill="#f5f4ef" font-family="Consolas,Menlo,monospace" font-size="19" font-weight="700" letter-spacing="1.1">AI / ML ENGINEER  ·  FULL-STACK DEVELOPER</text>
+ <g opacity="1"><animate attributeName="opacity" values="1;1;0;0;0;0;0;0;1" keyTimes="0;.235;.25;.485;.5;.735;.75;.985;1" dur="20s" repeatCount="indefinite"/><text x="44" y="405" fill="#1c4eff" font-family="Consolas,Menlo,monospace" font-size="18" font-weight="700" letter-spacing="1">COMPUTER VISION / GENERATIVE AI</text></g>
+ <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0;0;0;0" keyTimes="0;.235;.25;.485;.5;.735;.75;.985;1" dur="20s" repeatCount="indefinite"/><text x="44" y="405" fill="#1c4eff" font-family="Consolas,Menlo,monospace" font-size="18" font-weight="700" letter-spacing="1">HEALTHTECH / AGRITECH / NLP</text></g>
+ <g opacity="0"><animate attributeName="opacity" values="0;0;0;0;1;1;0;0;0" keyTimes="0;.235;.25;.485;.5;.735;.75;.985;1" dur="20s" repeatCount="indefinite"/><text x="44" y="405" fill="#1c4eff" font-family="Consolas,Menlo,monospace" font-size="18" font-weight="700" letter-spacing="1">RESEARCH / FULL-STACK PRODUCTS</text></g>
+ <g opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;0;1;1;0" keyTimes="0;.235;.25;.485;.5;.735;.75;.985;1" dur="20s" repeatCount="indefinite"/><text x="44" y="405" fill="#1c4eff" font-family="Consolas,Menlo,monospace" font-size="18" font-weight="700" letter-spacing="1">MODEL → API → INTERFACE → IMPACT</text></g>
+ <text x="44" y="455" fill="#aab4ca" font-family="Arial,Helvetica,sans-serif" font-size="17">Building useful AI products from model integration to deployment.</text>
+ <text x="44" y="482" fill="#aab4ca" font-family="Arial,Helvetica,sans-serif" font-size="15">B.E. Information Science Engineering · HKBK College of Engineering</text>
+ <g transform="translate(910 298)"><circle r="179" fill="none" stroke="#1c4eff" stroke-opacity=".16"/><circle r="151" fill="none" stroke="#f5f4ef" stroke-opacity=".1"/><circle r="179" fill="none" stroke="#1c4eff" stroke-width="3" stroke-dasharray="46 1080"><animateTransform attributeName="transform" type="rotate" values="0;360" dur="23s" repeatCount="indefinite"/></circle><circle r="151" fill="none" stroke="#a4b6ff" stroke-width="2" stroke-dasharray="16 934"><animateTransform attributeName="transform" type="rotate" values="360;0" dur="17s" repeatCount="indefinite"/></circle>
+  <rect x="-96" y="-96" width="192" height="192" fill="#1c4eff" stroke="#f5f4ef" stroke-width="2"/><path d="M-96 -65H96M-65 -96V96" stroke="#f5f4ef" stroke-opacity=".24"/>
+  <text x="0" y="14" text-anchor="middle" fill="#f5f4ef" font-family="Arial Black,Arial,sans-serif" font-size="72" font-weight="900" letter-spacing="-5">AS</text>
+  <rect x="143" y="-9" width="18" height="18" fill="#f5f4ef"><animate attributeName="opacity" values="1;.25;1" dur="1.8s" repeatCount="indefinite"/></rect>
+  <circle cx="-151" cy="0" r="7" fill="#1c4eff"/><circle cx="0" cy="179" r="7" fill="#f5f4ef"/></g>
+ <rect x="774" y="480" width="384" height="4" fill="#1c4eff"/><text x="774" y="468" fill="#c7cedf" font-family="Consolas,Menlo,monospace" font-size="12" letter-spacing="1.8">VISION — LANGUAGE — RETRIEVAL — PRODUCT</text>
+ <rect x="0" y="0" width="1200" height="10" fill="#1c4eff"/>
+ <path d="M42 536H1158" stroke="#39435c"/><text x="42" y="572" fill="#8490a8" font-family="Consolas,Menlo,monospace" font-size="11" letter-spacing="1.5">01 / BUILD WITH INTENT</text><text x="1158" y="572" text-anchor="end" fill="#8490a8" font-family="Consolas,Menlo,monospace" font-size="11" letter-spacing="1.5">AI · SOFTWARE · SYSTEMS</text>
+</g><rect x="1" y="1" width="1198" height="598" fill="none" stroke="#425075" stroke-width="2"/>
+</svg>
